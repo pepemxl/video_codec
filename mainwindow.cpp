@@ -55,38 +55,38 @@ void MainWindow::setFlagProcessed(bool value)
     flagProcessed = value;
 }
 
-void MainWindow::onMediaStatusChanged(QMediaPlayer::MediaStatus status)
-{
-    if (status == QMediaPlayer::LoadedMedia)
-        GetMetaData(this->mPlayer);
-}
+//void MainWindow::onMediaStatusChanged(QMediaPlayer::MediaStatus status)
+//{
+//    if (status == QMediaPlayer::LoadedMedia)
+//        GetMetaData(this->mPlayer);
+//}
 
-void MainWindow::GetMetaData(QMediaPlayer *player)
-{
-   // Get the list of keys there is metadata available for
-   QStringList metadatalist = player->availableMetaData();
+//void MainWindow::GetMetaData(QMediaPlayer *player)
+//{
+//   // Get the list of keys there is metadata available for
+//   QStringList metadatalist = player->availableMetaData();
 
-   // Get the size of the list
-   int list_size = metadatalist.size();
+//   // Get the size of the list
+//   int list_size = metadatalist.size();
 
-   //qDebug() << player->isMetaDataAvailable() << list_size;
+//   //qDebug() << player->isMetaDataAvailable() << list_size;
 
-   // Define variables to store metadata key and value
-   QString metadata_key;
-   QVariant var_data;
+//   // Define variables to store metadata key and value
+//   QString metadata_key;
+//   QVariant var_data;
 
-   std::cout << "Size: " << list_size << std::endl;
-   for (int indx = 0; indx < list_size; indx++)
-   {
-     // Get the key from the list
-     metadata_key = metadatalist.at(indx);
+//   std::cout << "Size: " << list_size << std::endl;
+//   for (int indx = 0; indx < list_size; indx++)
+//   {
+//     // Get the key from the list
+//     metadata_key = metadatalist.at(indx);
 
-     // Get the value for the key
-     var_data = player->metaData(metadata_key);
+//     // Get the value for the key
+//     var_data = player->metaData(metadata_key);
 
-    qDebug() << metadata_key << var_data.toString();
-   }
- }
+//    qDebug() << metadata_key << var_data.toString();
+//   }
+// }
 
 /**
  * @brief      Sets the valid extensions.
@@ -327,7 +327,8 @@ QString MainWindow::getCodec(QString filename,char lista_parametros[10][200]){
         lista_parametros[1][4] = '\0';
         strcpy(lista_parametros[2],buffer);
         codec_tag += QString::fromStdString(buffer);
-        strcpy(lista_parametros[3],pLocalCodecParameters->codec_name);
+        //strcpy(lista_parametros[3],pLocalCodecParameters->codec_name);
+        strcpy(lista_parametros[3],"pLocalCodecParameters->codec_name");
         if(pFormatContext->nb_streams > 1){
             std::cout << "WARNING: " << "El numero de streams es mayor que 1 " << std::endl;
             break;

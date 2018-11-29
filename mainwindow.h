@@ -16,21 +16,21 @@
 #include <QPushButton>
 #include <QLineEdit>
 #include <QWidget>
-#include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlRecord>
-#include <QSqlField>
-#include <QSqlError>
+//#include <QSqlDatabase>
+//#include <QSqlQuery>
+//#include <QSqlRecord>
+//#include <QSqlField>
+//#include <QSqlError>
 #include <QEventLoop>
 #include <QThread>
 #include <QMutex>
-#include <QHostAddress>
-#include <QHostInfo>
-#include <QNetworkInterface>
+//#include <QHostAddress>
+//#include <QHostInfo>
+//#include <QNetworkInterface>
 #include <QMutableStringListIterator>
 //#include <QVideoEncoderSettingsControl>
 //#include <QMediaMetaData>
-#include <QMediaPlayer>
+//#include <QMediaPlayer>
 //#include <QtXlsx>
 
 #include <stdio.h>
@@ -64,17 +64,6 @@ extern "C" {
 #include <libswscale/swscale.h>
 }
 
-#include <opencv2/opencv.hpp>
-#include <opencv2/core.hpp>
-#include <opencv2/core/cuda.hpp>//!< Probando
-#include <opencv2/objdetect/objdetect.hpp> //!< Probando
-#include <opencv2/cudaobjdetect.hpp>
-#include <opencv2/highgui.hpp>
-#include <opencv2/imgproc.hpp>
-#include <opencv2/imgcodecs.hpp>
-#include <opencv2/cudaobjdetect.hpp> //!< Probando
-#include <opencv2/videoio.hpp>
-#include <opencv2/ml.hpp>
 #include <omp.h>
 
 namespace Ui {
@@ -110,7 +99,7 @@ public:
     QVector<QString> vectorCodecDescription;
     QVector<bool> vectorStatusCorrect;
     std::vector<std::string> vectorParametros;
-    QMediaPlayer *mPlayer;
+//    QMediaPlayer *mPlayer;
     char lista_parametros[10][200];
     bool flagProcessed;
 
@@ -127,7 +116,7 @@ public:
     void clearVectors();
     void setPropertiesOnQTableWidget();
     void setLabelCurrentPathIn();
-    void GetMetaData(QMediaPlayer *player);
+    //void GetMetaData(QMediaPlayer *player);
     QString getCodec(QString filename, QString *codec_tag, QString *codec_tag2, QString *codec_name, QString *codec_profile, QString *codec_description);
     QString getCodec(QString filename, char lista_parametros[10][200]);
     bool getFlagProcessed() const;
@@ -140,7 +129,7 @@ public:
     void setNumberOfVideosIncorrect(int value);
 
 public slots:
-    void onMediaStatusChanged(QMediaPlayer::MediaStatus status);
+    //void onMediaStatusChanged(QMediaPlayer::MediaStatus status);
 private slots:
     void on_pushButton_clicked();
 
