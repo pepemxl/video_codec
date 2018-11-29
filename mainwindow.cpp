@@ -17,7 +17,6 @@ MainWindow::MainWindow(QWidget *parent) :
     //std::cout << "Size: " << list_size << std::endl;
     //this->GetMetaData(this->mPlayer);
     av_register_all();
-
 }
 
 MainWindow::~MainWindow()
@@ -329,6 +328,9 @@ QString MainWindow::getCodec(QString filename,char lista_parametros[10][200]){
         codec_tag += QString::fromStdString(buffer);
         //strcpy(lista_parametros[3],pLocalCodecParameters->codec_name);
         strcpy(lista_parametros[3],"pLocalCodecParameters->codec_name");
+        //std::cout <<  << std::endl;
+        //pLocalCodecParameters->
+
         if(pFormatContext->nb_streams > 1){
             std::cout << "WARNING: " << "El numero de streams es mayor que 1 " << std::endl;
             break;
@@ -361,6 +363,7 @@ void MainWindow::on_pushButtonProcesar_clicked()
 //            QString codec_profile;
 //            QString codec_description;
             this->vectorExtension.push_back(QFileInfo(filename).completeSuffix());
+            //std::cout << QFileInfo(filename).completeSuffix().toStdString() << std::endl;
             //this->getCodec(filename,codec_tag,codec_tag2,codec_name,codec_profile,codec_description);
             this->getCodec(filename,lista_parametros);
             std::string aux1 = std::string(lista_parametros[0]);
@@ -441,7 +444,7 @@ void MainWindow::on_pushButton_2_clicked()
         foreach(QString filename, this->vectorLongFileNames){
             fprintf(out,"%06d,",contador+1);
             fprintf(out,"%s,",filename.toStdString().c_str());
-            fprintf(out,"%s\n",this->vectorCodecTag2[contador].toStdString().c_str());
+            fprintf(out,"%s,",this->vectorCodecTag2[contador].toStdString().c_str());
             fprintf(out,"%s,",this->vectorCodecName[contador].toStdString().c_str());
             fprintf(out,"%s,",this->vectorCodecTag[contador].toStdString().c_str());
             fprintf(out,"%s,",this->vectorExtension[contador].toStdString().c_str());

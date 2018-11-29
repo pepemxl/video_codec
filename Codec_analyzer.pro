@@ -11,8 +11,11 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Codec_analyzer
 TEMPLATE = app
+ICON = codec_analyzer.png
 
 INCLUDEPATH += C:\Users\Golstats\Downloads\ffmpeg-20181127-1035206-win32-dev\ffmpeg-20181127-1035206-win32-dev\include
+
+INCLUDEPATH += C:\Qt\5.7\mingw53_32\include
 
 #LIBS += -L/usr/local/lib -L/usr/local/cuda/lib64 -lopencv_core -lopencv_imgcodecs -lopencv_highgui -lopencv_videoio -lopencv_imgproc -lopencv_calib3d -lopencv_features2d -lopencv_xfeatures2d \
 #        -lopencv_flann -lopencv_stitching -lopencv_objdetect -lopencv_video -lopencv_ml -fopenmp -lavutil -lavcodec -lavformat -lswscale
